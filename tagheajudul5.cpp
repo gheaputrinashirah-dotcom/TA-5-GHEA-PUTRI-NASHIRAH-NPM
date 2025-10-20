@@ -10,18 +10,15 @@ struct Node {
 
 Node* insertNode(Node* root, int npm) {
     if (!root) return new Node(npm);
-    if (npm < root->npm)
-        root->left = insertNode(root->left, npm);
-    else if (npm > root->npm)
-        root->right = insertNode(root->right, npm);
+    if (npm < root->npm) root->left = insertNode(root->left, npm);
+    else if (npm > root->npm) root->right = insertNode(root->right, npm);
     return root;
 }
 
 bool searchNode(Node* root, int npm) {
     if (!root) return false;
     if (root->npm == npm) return true;
-    if (npm < root->npm)
-        return searchNode(root->left, npm);
+    if (npm < root->npm) return searchNode(root->left, npm);
     return searchNode(root->right, npm);
 }
 
